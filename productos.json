@@ -1,1 +1,29 @@
-[{"id":1,"title":"Remera","description":"REMERA EFECTO INVERNADERO [ NEVADO ]","price":40000,"thumbnail":"https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20EFECTO%20INVERNADERO%20%5B%20NEVADO%20%5D.png?alt=media&token=5fcd5ef4-cb88-4433-96b4-44c99e721f37","code":"R1","stock":10},{"id":2,"title":"Remera","description":"REMERA ENERGÍAS RENOVABLES [ NEGRO ]","price":38000,"thumbnail":"https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20ENERG%C3%8DAS%20RENOVABLES%20%5B%20NEGRO%20%5D.png?alt=media&token=8e3be9bf-e046-4a3c-843a-99ba97d1b2af","code":"R2","stock":15},{"id":3,"title":"Remera","description":"REMERA SUNWAVES [ LS08 ]","price":45000,"thumbnail":"https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS08%20%5D.png?alt=media&token=494f2bbc-6806-4467-81a8-db7e367fde33","code":"R3","stock":12}]{"id":4,"title":"Remera","description":"REMERA SUNWAVES [ LS15 ]","price":35000,"thumbnail":"https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS15%20%5D.png?alt=media&token=7b4d7c6e-a310-4f6a-8be5-2e4e44cde4c0","code":"R4","stock":8}]
+[
+	{
+		"id": 1,
+		"title": "Remera",
+		"description": "REMERA EFECTO INVERNADERO [ NEVADO ]",
+		"price": 40000,
+		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20EFECTO%20INVERNADERO%20%5B%20NEVADO%20%5D.png?alt=media&token=5fcd5ef4-cb88-4433-96b4-44c99e721f37",
+		"code": "R1",
+		"stock": 10
+	},
+	{
+		"id": 3,
+		"title": "Remera",
+		"description": "REMERA SUNWAVES [ LS08 ]",
+		"price": 45000,
+		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS08%20%5D.png?alt=media&token=494f2bbc-6806-4467-81a8-db7e367fde33",
+		"code": "R3",
+		"stock": 12
+	},
+	{
+		"id": 4,
+		"title": "Remera modificada",
+		"description": "Remera modificada con updateProduct",
+		"price": 35000,
+		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS15%20%5D.png?alt=media&token=7b4d7c6e-a310-4f6a-8be5-2e4e44cde4c0",
+		"code": "R4",
+		"stock": 8
+	}
+]
