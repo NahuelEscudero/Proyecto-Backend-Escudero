@@ -2,7 +2,7 @@
 import fs from "fs";
 
 //CLASE: MANEJADOR DE PRODUCTOS
-export class ProductManager {
+class ProductManager {
   constructor(path) {
     this.path = path;
     this.products = [];
@@ -30,11 +30,12 @@ export class ProductManager {
       return prodsJson; //Retorno productos del archivo
     } catch (error) {
       if (error.code === "ENOENT") {
-        // Si el archivo no existe, creo un array vacío y lo escribo en el archivo
+        // Si el archivo no existe, creo un array vacío, lo escribo en el archivo y lo vuelvo a leer
         await this.writeFile(this.path, this.products);
         console.log("Archivo de productos creado");
 
-        return [];
+        const prods = await this.readFile(this.path);
+        return prods;
       } else {
         console.error(`Error al leer el archivo : ${error}`);
         return [];
@@ -133,10 +134,4 @@ export class ProductManager {
 }
 
 
-const PM = new ProductManager("../productos.json");
-
-const run = async () => {
-  console.log(await PM.getProducts());
-}
-
-run();
+export default ProductManager;
