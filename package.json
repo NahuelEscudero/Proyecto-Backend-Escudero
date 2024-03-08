@@ -1,0 +1,16 @@
+{
+  "name": "programacion-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Proyecto para el curso de Desarrollo Backend en Coderhouse",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nahuel Escudero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
