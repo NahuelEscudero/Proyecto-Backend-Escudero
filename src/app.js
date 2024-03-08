@@ -7,7 +7,7 @@ import { ProductManager } from './ProductManager.js';
 
 const app = express(); //app tiene todas las funcionalidades de express
 const PORT = 8080; //defino puerto 
-const PM = new ProductManager(); //instancio Product Manager
+const PM = new ProductManager("../productos.json"); //instancio Product Manager
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -15,8 +15,7 @@ app.use(express.urlencoded({extended: true}));
 app.get("/", async (req, res) => {
     try {
         const products = await PM.getProducts();
-        const productsStringify = JSON.stringify(products);
-        res.send({ productsStringify });
+        res.send({ products });
     } catch (error) {
         console.error(`Error al obtener los productos: ${error}`);
         res.status(500).send({ error: 'Error al obtener los productos' });

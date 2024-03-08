@@ -131,3 +131,12 @@ export class ProductManager {
     }
   }
 }
+
+
+const PM = new ProductManager("../productos.json");
+
+const run = async () => {
+  console.log(await PM.getProducts());
+}
+
+run();
