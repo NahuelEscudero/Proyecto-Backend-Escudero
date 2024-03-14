@@ -51,7 +51,7 @@ class CartManager {
       //Genero base del carrito
       const newCart = {
         id: newId,
-        products,
+        products: [],
         // thumbnails,
       };
       carts.push(newCart); //Agrego carrito al array en memoria
@@ -68,12 +68,11 @@ class CartManager {
   async getCartById(id) {
     const carts = await this.getCarts();
     const cart = carts.find((cart) => cart.id === id); //Obtengo carrito por id
-
     if (!cart) {
       console.error("Carrito no encontrado");
       return;
     } else {
-      return cart;
+      return cart.products;
     }
   }
 

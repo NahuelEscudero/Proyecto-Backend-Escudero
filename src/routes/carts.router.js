@@ -8,24 +8,27 @@ import CartManager from "../CartManager.js";
 const router = Router();
 
 //INICIO PRODUCT MANAGER
-const PM = new CartManager("carts.json");
+const CM = new CartManager("carts.json");
 
-//Rutas GET
-router.get("/:cartId", async (req, res) => {
-  
-});
-
-//Rutas POST
+//Ruta POST
 router.post("/", async (req, res) => {
-  
+  const carts = await CM.createCart();
+
+  res.status(200).send({ message: "Carrito creado correctamente" });
+
+  return carts;
 });
 
-router.put("/:cartId", async (req, res) => {
-  
+//Ruta GET por Id
+router.get("/:cartId", async (req, res) => {
+  const id = parseInt(req.params.cartId);
+  const cartProds = await CM.getCartById(id);
+
+  res.status(200).send({ products: cartProds});
 });
 
-router.delete("/:cartId", async (req, res) => {
-  
-});
+router.put("/:cartId", async (req, res) => {});
+
+router.delete("/:cartId", async (req, res) => {});
 
 export default router;
