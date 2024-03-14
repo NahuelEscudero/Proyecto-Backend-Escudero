@@ -47,7 +47,7 @@ router.get("/:productId", async (req, res) => {
   }
 });
 
-//Rutas POST
+//Ruta POST
 router.post("/", async (req, res) => {
   const { title, description, code, price, stock, category /*thumbnails*/ } =
     req.body;
@@ -71,6 +71,7 @@ router.post("/", async (req, res) => {
   res.status(201).send({ message: "Producto creado correctamente!" });
 });
 
+//Ruta PUT
 router.put("/:productId", async (req, res) => {
   const id = parseInt(req.params.productId);
   const { title, description, code, price, stock, category /*thumbnails*/ } =
@@ -91,6 +92,8 @@ router.put("/:productId", async (req, res) => {
   res.status(201).send({ message: "Producto modificado correctamente!" });
 });
 
+
+//Ruta DELETE
 router.delete("/:productId", async (req, res) => {
   const id = parseInt(req.params.productId);
 

@@ -1,6 +1,12 @@
 //FILE SYSTEM
 import fs from "fs";
 
+//MANEJADOR DE PRODUCTOS
+import ProductManager from "./ProductManager.js";
+
+//Instancio Product Manager
+const PM = new ProductManager("productos.json");
+
 //CLASE: MANEJADOR DEL CARRITO
 class CartManager {
   constructor(path) {
@@ -28,7 +34,7 @@ class CartManager {
       const cartsJson = await this.readFile(this.path);
       return cartsJson; //Retorno carritos del archivo
     } catch (error) {
-      if (error.code === ("ENOENT")) {
+      if (error.code === "ENOENT") {
         // Si el archivo no existe, creo un array vacío, lo escribo en el archivo y lo vuelvo a leer
         await this.writeFile(this.path, []);
         console.log("Archivo de carritos creado");
@@ -42,11 +48,13 @@ class CartManager {
     }
   }
 
+  //Creo un carrito nuevo
   async createCart() {
     const carts = await this.getCarts();
 
     try {
-      const newId = carts.length > 0 ? Math.max(...carts.map((cart) => cart.id)) + 1 : 1;
+      const newId =
+        carts.length > 0 ? Math.max(...carts.map((cart) => cart.id)) + 1 : 1;
 
       //Genero base del carrito
       const newCart = {
@@ -57,10 +65,57 @@ class CartManager {
       carts.push(newCart); //Agrego carrito al array en memoria
       await this.writeFile(this.path, carts); //Escribo archivo con los carritos almacenados en memoria
 
-
       return newCart;
     } catch (error) {
       console.error(`Error al escribir el archivo : ${error}`);
+    }
+  }
+
+  //Agrego producto al carrito
+  async addProductToCart(idCart, idProd) {
+    try {
+      //Obtengo carrito y producto por id
+      const cart = await this.getCartById(idCart);
+      const prod = await PM.getProductById(idProd);
+      //Si no existe prod ...
+      if (!prod) {
+        console.error(
+          `Producto con id:${idProd} no encontrado en el carrito:${idCart}`
+        );
+        return;
+      }
+      //Si no existen productos en cart, definir un array vacio []
+      if (!cart.products) {
+        cart.products = [];
+      }
+      //Nueva cantidad a agregar
+      const newQuantity =
+        cart.products.length > 0
+          ? Math.max(...cart.products.map((prod) => prod.quantity)) + 1
+          : 1;
+      //Base para el producto en el carrito
+      const prodCart = {
+        id: prod.id,
+        quantity: newQuantity,
+      };
+      //Agrego el producto al carrito actual
+      cart.products.push(prodCart);
+      //Obtengo todos los carritos
+      const carts = await this.getCarts();
+      //Busco el index del carrito por su id
+      const index = carts.findIndex((cart) => cart.id === idCart);
+      //Si existe el index ...
+      if (index !== -1) {
+        //Asigno el carrito modificado al index donde se encontraba ese carrito
+        carts[index] = cart;
+        //Escribo el archivo con todos los carritos
+        await this.writeFile(this.path, carts);
+        console.log("Producto agregado al carrito correctamente");
+      } else {
+        console.error("No se encontró el carrito");
+      }
+    } catch (error) {
+      console.error(`Error al agregar el producto al carrito: ${error}`);
     }
   }
 
@@ -72,7 +127,7 @@ class CartManager {
       console.error("Carrito no encontrado");
       return;
     } else {
-      return cart.products;
+      return cart;
     }
   }
 

@@ -28,7 +28,7 @@ class ProductManager {
       const prodsJson = await this.readFile(this.path);
       return prodsJson; //Retorno productos del archivo
     } catch (error) {
-      if (error.code === ("ENOENT")) {
+      if (error.code === "ENOENT") {
         // Si el archivo no existe, creo un array vacío, lo escribo en el archivo y lo vuelvo a leer
         await this.writeFile(this.path, []);
         console.log("Archivo de productos creado");
@@ -47,7 +47,6 @@ class ProductManager {
     const products = await this.getProducts();
 
     try {
-      
       // Valido que no se repita el campo "code"
       if (
         products.some(
@@ -57,7 +56,10 @@ class ProductManager {
         console.error("El código de producto ya está en uso");
         return;
       }
-      const newId = products.length > 0 ? Math.max(...products.map((product) => product.id)) + 1 : 1;
+      const newId =
+        products.length > 0
+          ? Math.max(...products.map((product) => product.id)) + 1
+          : 1;
 
       //Genero base del producto
       const newProduct = {
@@ -73,7 +75,6 @@ class ProductManager {
       products.push(newProduct); //Agrego producto recibido por parametro al array en memoria
       await this.writeFile(this.path, products); //Escribo archivo con los productos almacenados en memoria
 
-
       return newProduct;
     } catch (error) {
       console.error(`Error al escribir el archivo : ${error}`);
@@ -84,7 +85,6 @@ class ProductManager {
   async getProductById(id) {
     const products = await this.getProducts();
     const product = products.find((product) => product.id === id); //Obtengo producto por id
-
     if (!product) {
       console.error("Producto no encontrado");
       return;
