@@ -1,110 +1,38 @@
 [
 	{
 		"id": 1,
-		"category": "remeras",
-		"title": "remeras EFECTO INVERNADERO [ NEVADO ]",
-		"price": 40000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20EFECTO%20INVERNADERO%20%5B%20NEVADO%20%5D.png?alt=media&token=5fcd5ef4-cb88-4433-96b4-44c99e721f37",
-		"code": "R1",
-		"stock": 10
+		"title": "Media Nueva",
+		"description": "Nueva media en el array",
+		"code": "M1",
+		"price": "9000",
+		"stock": "4",
+		"category": "medias"
+	},
+	{
+		"id": 1,
+		"title": "Media Nueva 2",
+		"description": "Nueva media en el array",
+		"code": "M2",
+		"price": "9000",
+		"stock": "4",
+		"category": "medias"
 	},
 	{
 		"id": 2,
-		"category": "remeras",
-		"title": "REMERA ENERGÍAS RENOVABLES [ NEGRO ]",
-		"price": 30000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20ENERG%C3%8DAS%20RENOVABLES%20%5B%20NEGRO%20%5D.png?alt=media&token=8e3be9bf-e046-4a3c-843a-99ba97d1b2af",
-		"code": "R2",
-		"stock": 12
+		"title": "Media Nueva 3",
+		"description": "Nueva media en el array",
+		"code": "M3",
+		"price": "9000",
+		"stock": "4",
+		"category": "medias"
 	},
 	{
 		"id": 3,
-		"category": "remeras",
-		"title": "remeras SUNWAVES [ LS08 ]",
-		"price": 45000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS08%20%5D.png?alt=media&token=494f2bbc-6806-4467-81a8-db7e367fde33",
-		"code": "R3",
-		"stock": 12
-	},
-	{
-		"id": 4,
-		"category": "remeras",
-		"title": "REMERA SUNWAVES [ LS15 ]",
-		"price": 35000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERA%20SUNWAVES%20%5B%20LS15%20%5D.png?alt=media&token=7b4d7c6e-a310-4f6a-8be5-2e4e44cde4c0",
-		"code": "R4",
-		"stock": 8
-	},
-	{
-		"id": 5,
-		"category": "remeras",
-		"title": "REMERON MEGA [ GRIS ]",
-		"price": 38000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERON%20MEGA%20%5B%20GRIS%20%5D.png?alt=media&token=73ad4cad-1551-4f98-abd5-de0d3465d87c",
-		"code": "R5",
-		"stock": 13
-	},
-	{
-		"id": 6,
-		"category": "remeras",
-		"title": "REMERON MEGA [ NEGRO ]",
-		"price": 42000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/remeras%2FREMERON%20MEGA%20%5B%20NEGRO%20%5D.png?alt=media&token=ad7e23b2-fb24-4b52-99f5-a3e5433099cc",
-		"code": "R6",
-		"stock": 9
-	},
-	{
-		"id": 7,
-		"category": "bermudas",
-		"title": "BERMUDA CARGO TILO [ NEGRO ]",
-		"price": 45000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20CARGO%20TILO%20%5B%20NEGRO%20%5D.png?alt=media&token=c9041a45-e68c-44ef-97e9-a02c9fc7dfb4",
-		"code": "B1",
-		"stock": 5
-	},
-	{
-		"id": 8,
-		"category": "bermudas",
-		"title": "BERMUDA JOY [ MILITAR ]",
-		"price": 48000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20JOY%20%5B%20MILITAR%20%5D.png?alt=media&token=adff4a2f-d56d-4025-b3ec-bc69b6cc6ff7",
-		"code": "B2",
-		"stock": 6
-	},
-	{
-		"id": 9,
-		"category": "bermudas",
-		"title": "BERMUDA NICE [ 100% LINO - NEGRO ]",
-		"price": 42000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20NICE%20%5B%20100%25%20LINO%20-%20NEGRO%20%5D.png?alt=media&token=3508c528-5d84-4c09-8999-feac8c49e3e3",
-		"code": "B3",
-		"stock": 4
-	},
-	{
-		"id": 10,
-		"category": "bermudas",
-		"title": "BERMUDA TECHNO [ AZUL FRANCIA ]",
-		"price": 35000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20TECHNO%20%5B%20AZUL%20FRANCIA%20%5D.png?alt=media&token=4de7f693-641f-4945-ba7d-5165bdb490e9",
-		"code": "B4",
-		"stock": 7
-	},
-	{
-		"id": 11,
-		"category": "bermudas",
-		"title": "BERMUDA TECHNO [ FUCSIA ]",
-		"price": 38000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20TECHNO%20%5B%20FUCSIA%20%5D.png?alt=media&token=e25aeb62-4fbd-4798-8672-abe3ca475383",
-		"code": "B5",
-		"stock": 3
-	},
-	{
-		"id": 12,
-		"category": "bermudas",
-		"title": "BERMUDA TECHNO [ MILITAR ]",
-		"price": 46000,
-		"thumbnail": "https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/bermudas%2FBERMUDA%20TECHNO%20%5B%20MILITAR%20%5D.png?alt=media&token=74f29f9d-484c-41d3-8e81-53f2416aaac2",
-		"code": "B6",
-		"stock": 8
+		"title": "Media Nueva 4",
+		"description": "Nueva media en el array",
+		"code": "M4",
+		"price": "9000",
+		"stock": "4",
+		"category": "medias"
 	}
 ]

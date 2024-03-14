@@ -5,7 +5,6 @@ import fs from "fs";
 class ProductManager {
   constructor(path) {
     this.path = path;
-    this.products = [];
     this.nextId = 1;
   }
 
@@ -29,9 +28,9 @@ class ProductManager {
       const prodsJson = await this.readFile(this.path);
       return prodsJson; //Retorno productos del archivo
     } catch (error) {
-      if (error.code === "ENOENT") {
+      if (error.code === ("ENOENT")) {
         // Si el archivo no existe, creo un array vacío, lo escribo en el archivo y lo vuelvo a leer
-        await this.writeFile(this.path, this.products);
+        await this.writeFile(this.path, []);
         console.log("Archivo de productos creado");
 
         const prods = await this.readFile(this.path);
@@ -43,36 +42,39 @@ class ProductManager {
     }
   }
 
-  async addProduct(title, description, price, thumbnail, code, stock) {
-    try {
-      // Valido que todos los campos sean obligatorios
-      if (!title || !description || !price || !thumbnail || !code || !stock) {
-        console.error("Todos los campos son obligatorios");
-        return;
-      }
+  async addProduct(prod) {
+    const { title, description, code, price, stock, category } = prod;
+    const products = await this.getProducts();
 
+    try {
+      
       // Valido que no se repita el campo "code"
-      if (await this.getProducts().some((product) => product.code === code)) {
+      if (
+        products.some(
+          (product) => product.title === title || product.code === code
+        )
+      ) {
         console.error("El código de producto ya está en uso");
         return;
       }
+      const newId = products.length > 0 ? Math.max(...products.map((product) => product.id)) + 1 : 1;
 
       //Genero base del producto
-      const product = {
-        id: this.nextId++,
+      const newProduct = {
+        id: newId,
         title,
         description,
-        price,
-        thumbnail,
         code,
+        price,
         stock,
+        category,
+        // thumbnails,
       };
+      products.push(newProduct); //Agrego producto recibido por parametro al array en memoria
+      await this.writeFile(this.path, products); //Escribo archivo con los productos almacenados en memoria
 
-      this.products.push(product); //Agrego producto recibido por parametro al array en memoria
 
-      await this.writeFile(this.path, this.products); //Escribo archivo con los productos almacenados en memoria
-
-      return product;
+      return newProduct;
     } catch (error) {
       console.error(`Error al escribir el archivo : ${error}`);
     }
@@ -132,6 +134,5 @@ class ProductManager {
     }
   }
 }
-
 
 export default ProductManager;
