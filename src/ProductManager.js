@@ -1,6 +1,11 @@
 //FILE SYSTEM
 import fs from "fs";
 
+//VARIABLES DE ENTORNO
+import { config } from "dotenv";
+import { log } from "console";
+config();
+
 //CLASE: MANEJADOR DE PRODUCTOS
 class ProductManager {
   constructor(path) {
@@ -43,7 +48,7 @@ class ProductManager {
   }
 
   async addProduct(prod) {
-    const { title, description, code, price, stock, category } = prod;
+    const { title, code, price, stock, category, thumbnails } = prod;
     const products = await this.getProducts();
 
     try {
@@ -65,12 +70,13 @@ class ProductManager {
       const newProduct = {
         id: newId,
         title,
-        description,
+        description: process.env.DESCRIPTION_PRODUCT,
         code,
         price,
         stock,
         category,
-        // thumbnails,
+        status: true,
+        thumbnails,
       };
       products.push(newProduct); //Agrego producto recibido por parametro al array en memoria
       await this.writeFile(this.path, products); //Escribo archivo con los productos almacenados en memoria
@@ -101,8 +107,8 @@ class ProductManager {
       const index = prodsJson.findIndex((product) => product.id === id); //Busco el índice en el array del producto que coincide con el id que paso por parámetro
 
       if (index != -1) {
-        prodsJson[index] = { ...prodsJson[index], ...product }; //Actualizo el producto con el que se le pasa por parametro
-
+        const updatedProduct = { ...prodsJson[index], ...product }; //Actualizo el producto con el que se le pasa por parametro
+        prodsJson[index] = updatedProduct;
         await this.writeFile(this.path, prodsJson); //Escribo el archivo modificado otra vez
 
         console.log("Producto modificado con exito");

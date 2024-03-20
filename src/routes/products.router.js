@@ -1,6 +1,9 @@
 //ROUTER
 import { Router } from "express";
 
+//MULTER
+import { uploader } from "../utils.js";
+
 //PRODUCT MANAGER
 import ProductManager from "../ProductManager.js";
 
@@ -8,7 +11,7 @@ import ProductManager from "../ProductManager.js";
 const router = Router();
 
 //INICIO PRODUCT MANAGER
-const PM = new ProductManager("productos.json");
+const PM = new ProductManager("data/productos.json");
 
 //Rutas GET
 router.get("/", async (req, res) => {
@@ -48,11 +51,15 @@ router.get("/:productId", async (req, res) => {
 });
 
 //Ruta POST
-router.post("/", async (req, res) => {
-  const { title, description, code, price, stock, category /*thumbnails*/ } =
-    req.body;
+router.post("/", uploader.array("thumbnails"), async (req, res) => {
+  const { title, description, code, price, stock, category } = req.body;
+  if (!req.files) {
+    return res
+      .status(400)
+      .send({ error: "Se necesita cargar una imagen para crear un producto" });
+  }
 
-  if (!title || !description || !code || !price || !stock || !category)
+  if (!title || !code || !price || !stock || !category)
     return res
       .status(400)
       .send({ error: "Faltan datos para crear el producto!" });
@@ -65,7 +72,7 @@ router.post("/", async (req, res) => {
     status: true,
     stock,
     category,
-    // thumbnails,
+    thumbnails: req.files.map(file => file.path),
   };
   await PM.addProduct(newProduct);
   res.status(201).send({ message: "Producto creado correctamente!" });
@@ -74,7 +81,7 @@ router.post("/", async (req, res) => {
 //Ruta PUT
 router.put("/:productId", async (req, res) => {
   const id = parseInt(req.params.productId);
-  const { title, description, code, price, stock, category /*thumbnails*/ } =
+  const { title, description, code, price, stock, category } =
     req.body;
 
   const newProduct = {
@@ -82,16 +89,13 @@ router.put("/:productId", async (req, res) => {
     description,
     code,
     price,
-    status: true,
     stock,
     category,
-    // thumbnails,
   };
 
   await PM.updateProduct(id, newProduct);
   res.status(201).send({ message: "Producto modificado correctamente!" });
 });
-
 
 //Ruta DELETE
 router.delete("/:productId", async (req, res) => {
@@ -99,7 +103,7 @@ router.delete("/:productId", async (req, res) => {
 
   await PM.deleteProduct(id);
 
-  res.status(200).send({message: "Producto eliminado correctamente"});
+  res.status(200).send({ message: "Producto eliminado correctamente" });
 });
 
 export default router;

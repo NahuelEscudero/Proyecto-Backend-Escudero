@@ -1,12 +1,10 @@
 //ROUTER
 import { Router } from "express";
-
-//PRODUCT Y CART MANAGER
-import CartManager from "../CartManager.js";
-
 //INICIO ROUTER
 const router = Router();
 
+//CART MANAGER
+import CartManager from "../CartManager.js";
 //INICIO CART MANAGER
 const CM = new CartManager("carritos.json");
 
@@ -39,9 +37,16 @@ router.post("/:cartId/product/:productId", async (req, res) => {
       .status(200)
       .send({ message: "Los parametros se obtuvieron correctamente" });
   } catch (error) {
-    console.error(`Error al crear el producto id:${idProduct} en el carrito:${idCart}: ${error}`);
-    
-    res.status(400).send({ error: "No se encontro el producto porque el id no existe", error });
+    console.error(
+      `Error al crear el producto id:${idProduct} en el carrito:${idCart}: ${error}`
+    );
+
+    res
+      .status(400)
+      .send({
+        error: "No se encontro el producto porque el id no existe",
+        error,
+      });
   }
 });
 

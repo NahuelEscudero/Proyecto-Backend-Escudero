@@ -1,0 +1,28 @@
+[
+	{
+		"id": 1,
+		"title": "Better Off Alone",
+		"description": "Talle único (38 - 44).\n\nPuño reforzado con hilo a dos cabos.\n\n90% Algodón \n\n5% Spándex\n\n5% Poliamida",
+		"code": "M1",
+		"price": "9000",
+		"stock": "6",
+		"category": "old school",
+		"status": true,
+		"thumbnails": [
+			"C:\\Users\\marin\\OneDrive\\Escritorio\\Nahuel\\CODERHOUSE\\Backend\\Programacion Backend\\public\\images\\old school\\Better Off Alone.png"
+		]
+	},
+	{
+		"id": 2,
+		"title": "No Limit",
+		"description": "Talle único (38 - 44).\n\nPuño reforzado con hilo a dos cabos.\n\n90% Algodón \n\n5% Spándex\n\n5% Poliamida",
+		"code": "M2",
+		"price": "9000",
+		"stock": "3",
+		"category": "old school",
+		"status": true,
+		"thumbnails": [
+			"C:\\Users\\marin\\OneDrive\\Escritorio\\Nahuel\\CODERHOUSE\\Backend\\Programacion Backend\\public\\images\\old school\\No Limit.png"
+		]
+	}
+]
