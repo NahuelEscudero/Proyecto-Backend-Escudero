@@ -4,7 +4,7 @@ import { Router } from "express";
 const router = Router();
 
 //CART MANAGER
-import CartManager from "../CartManager.js";
+import CartManager from "../managers/CartManager.js";
 //INICIO CART MANAGER
 const CM = new CartManager("carritos.json");
 

@@ -3,7 +3,6 @@ import fs from "fs";
 
 //VARIABLES DE ENTORNO
 import { config } from "dotenv";
-import { log } from "console";
 config();
 
 //CLASE: MANEJADOR DE PRODUCTOS

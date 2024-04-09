@@ -1,0 +1,23 @@
+{{#each prods}}
+  <div class="product-card" id="{{this.id}}">
+    <h4 class="product-card__title">{{this.title}}</h4>
+    {{#each this.thumbnails}}
+      <img src="{{this}}" alt="{{../title}}" class="product-card__img" />
+    {{/each}}
+    <div class="product-card-add">
+      <p class="product-card-add__precio">{{this.price}}</p>
+      <button class="product-card-add__button">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/simbolos%2FADD%20CARRITO%20W.png?alt=media&token=07d91412-5dbc-4905-850a-61679a3cb62a"
+          alt="Agregar al carrito"
+          class="product-card-add__button-img-white"
+        />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/insidia-ind.appspot.com/o/simbolos%2FADD%20CARRITO%20B.png?alt=media&token=562c9301-4c6e-4203-998b-21ffca2cb9e7"
+          alt="Agregar al carrito"
+          class="product-card-add__button-img-black"
+        />
+      </button>
+    </div>
+  </div>
+{{/each}}

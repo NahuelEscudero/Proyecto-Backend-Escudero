@@ -5,7 +5,7 @@ import { Router } from "express";
 import { uploader } from "../utils.js";
 
 //PRODUCT MANAGER
-import ProductManager from "../ProductManager.js";
+import ProductManager from "../managers/ProductManager.js";
 
 //INICIO ROUTER
 const router = Router();
@@ -72,17 +72,16 @@ router.post("/", uploader.array("thumbnails"), async (req, res) => {
     status: true,
     stock,
     category,
-    thumbnails: req.files.map(file => file.path),
+    thumbnails: req.files.map((file) => file.path),
   };
   await PM.addProduct(newProduct);
   res.status(201).send({ message: "Producto creado correctamente!" });
 });
 
 //Ruta PUT
-router.put("/:productId", async (req, res) => {
+router.put("/:productId", async (req, res)  => {
   const id = parseInt(req.params.productId);
-  const { title, description, code, price, stock, category } =
-    req.body;
+  const { title, description, code, price, stock, category } = req.body;
 
   const newProduct = {
     title,

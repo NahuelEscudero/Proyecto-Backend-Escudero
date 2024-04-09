@@ -24,5 +24,31 @@
 		"thumbnails": [
 			"C:\\Users\\marin\\OneDrive\\Escritorio\\Nahuel\\CODERHOUSE\\Backend\\Programacion Backend\\public\\images\\old school\\No Limit.png"
 		]
+	},
+	{
+		"id": 3,
+		"title": "Get Away",
+		"description": "Talle único (38 - 44).\n\nPuño reforzado con hilo a dos cabos.\n\n90% Algodón \n\n5% Spándex\n\n5% Poliamida",
+		"code": "M3",
+		"price": "9000",
+		"stock": "3",
+		"category": "old school",
+		"status": true,
+		"thumbnails": [
+			"C:\\Users\\marin\\OneDrive\\Escritorio\\Nahuel\\CODERHOUSE\\Backend\\Programacion Backend\\public\\images\\old school\\Get Away.png"
+		]
+	},
+	{
+		"id": 4,
+		"title": "Pursuit Of Happiness",
+		"description": "Talle único (38 - 44).\n\nPuño reforzado con hilo a dos cabos.\n\n90% Algodón \n\n5% Spándex\n\n5% Poliamida",
+		"code": "M4",
+		"price": "9000",
+		"stock": "3",
+		"category": "old school",
+		"status": true,
+		"thumbnails": [
+			"C:\\Users\\marin\\OneDrive\\Escritorio\\Nahuel\\CODERHOUSE\\Backend\\Programacion Backend\\public\\images\\old school\\Pursuit Of Happiness.png"
+		]
 	}
 ]
